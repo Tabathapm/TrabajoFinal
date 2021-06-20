@@ -67,15 +67,34 @@
                 </div>
             </div>
             
+           <form action="pag-logueado.php" method="post">
 
-            <a href="index.php" class="nav__link">
+            <button type="submit" name="log_out">
+                <a href="#" class="nav__link" >
                 <i class='bx bx-log-out nav__icon'></i>
                 <span class="nav__name">Log Out</span>
-            </a>
+                </a> 
+            </button>
+               
+           </form>
+
+            
         </nav>
     </div>
 
+    <?php
+         
+        require_once("helper/Configuracion.php");
 
+        if(isset($_POST['log_out'])){
+            
+                $controller = Configuracion::crearLoginController();
+
+                $controller->cerrarSesion();
+
+        }
+
+    ?>
 
     <h1>index</h1>
     
