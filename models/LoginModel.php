@@ -12,12 +12,14 @@ class LoginModel{
 
 	public function validarUsuario($user,$pass){
 
-    $query="select * 
-    		from Empleado
-    		where usuario='".$user."' and password='".$pass."'";
+     $query="SELECT * 
+    		FROM Empleado
+    		WHERE usuario='".$usuario."' AND password='".$contraseña."' AND activo = '1'";
 
 
 	return $this->database->query($query);
 
+
+}
 
 }
