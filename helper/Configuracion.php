@@ -11,7 +11,7 @@ class Configuracion{
 	
 	public static function crearRender(){
 
-		include_once('third-party/mustache/src/Mustache/Autoloader.php');
+		//include_once('third-party/mustache/src/Mustache/Autoloader.php');
 		include_once('helper/Render.php');
 		return new Render('view/partial');
 	}
@@ -30,6 +30,11 @@ class Configuracion{
 		$loginModel = Configuracion::crearLoginModel();
 		include_once("controllers/LoginController.php");
 		return new LoginController($render, $loginModel);
+	}
+
+	public static function getConfigurationParameters(){
+
+		return parse_ini_file("config/config.ini");
 	}
 
 }
